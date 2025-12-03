@@ -99,8 +99,8 @@ public class LongestCommonSubstring {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in1 = new In(args[0]);
-        In in2 = new In(args[1]);
+        In in1 = new In("tale.txt");
+        In in2 = new In("mobydick.txt");
         String s = in1.readAll().trim().replaceAll("\\s+", " ");
         String t = in2.readAll().trim().replaceAll("\\s+", " ");
         StdOut.println("'" + lcs(s, t) + "'");

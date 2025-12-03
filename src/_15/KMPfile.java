@@ -108,8 +108,8 @@ public class KMPfile {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String pat_file_name = args[0];
-        String txt_file_name = args[1];
+        String pat_file_name = "data1_1.txt";
+        String txt_file_name = "data1_2.txt";
         File pat_file = new File(pat_file_name);
         File txt_file = new File(txt_file_name);
         
