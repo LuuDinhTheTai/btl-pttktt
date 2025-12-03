@@ -146,10 +146,36 @@ public class NFA {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String regexp = "(" + args[0] + ")";
-        String txt = args[1];
-        NFA nfa = new NFA(regexp);
-        StdOut.println(nfa.recognizes(txt));
+//        String regexp = "(" + args[0] + ")";
+//        String txt = args[1];
+//        NFA nfa = new NFA(regexp);
+//        StdOut.println(nfa.recognizes(txt));
+        String filename = "data.txt";
+
+        // Sử dụng class In của algs4 để đọc file
+        In in = new In(filename);
+
+        StdOut.println("Regex            | Text                   | Result");
+        StdOut.println("--------------------------------------------------");
+
+        // Vòng lặp đọc đến khi hết file
+        while (!in.isEmpty()) {
+            String pattern = in.readString(); // Đọc cụm string đầu tiên (regex)
+            String txt = in.readString();     // Đọc cụm string tiếp theo (text)
+
+            // Logic của NFA (bao bọc regex bằng ngoặc đơn như code gốc)
+            String regexp = "(" + pattern + ")";
+
+            try {
+                NFA nfa = new NFA(regexp);
+                boolean result = nfa.recognizes(txt);
+
+                // In kết quả định dạng đẹp
+                StdOut.printf("%-16s | %-22s | %b\n", pattern, txt, result);
+            } catch (Exception e) {
+                StdOut.println("Lỗi với regex: " + pattern + " -> " + e.getMessage());
+            }
+        }
     }
 
 } 
