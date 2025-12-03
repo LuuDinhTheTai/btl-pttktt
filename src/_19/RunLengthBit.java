@@ -1,7 +1,7 @@
-package _18; /******************************************************************************
- *  Compilation:  javac RunLength.java
- *  Execution:    java RunLength - < input.txt   (compress)
- *  Execution:    java RunLength + < input.txt   (expand)
+package _19; /******************************************************************************
+ *  Compilation:  javac RunLengthBit.java
+ *  Execution:    java RunLengthBit - < input.txt   (compress)
+ *  Execution:    java RunLengthBit + < input.txt   (expand)
  *  Dependencies: BinaryIn.java BinaryOut.java
  *  Data files:   https://algs4.cs.princeton.edu/55compression/4runs.bin
  *                https://algs4.cs.princeton.edu/55compression/q32x48.bin
@@ -16,7 +16,7 @@ package _18; /******************************************************************
  *
  *  This has runs of 15 0s, 7 1s, 7 0s, and 11 1s.
  *
- *  % java RunLength - < 4runs.bin | java HexDump
+ *  % java RunLengthBit - < 4runs.bin | java HexDump
  *  0f 07 07 0b
  *  4 bytes
  *
@@ -25,7 +25,7 @@ package _18; /******************************************************************
  
 
 /**
- *  The {@code RunLength} class provides static methods for compressing
+ *  The {@code RunLengthBit} class provides static methods for compressing
  *  and expanding a binary input using run-length coding with 8-bit
  *  run lengths.
  *  <p>
@@ -36,16 +36,19 @@ package _18; /******************************************************************
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
-import java.io.*;
-public class RunLength {
-    private static final int R    = 256;
-    private static final int LG_R = 8;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+public class RunLengthBit {
+    private static final int R    = 2;
+    private static final int LG_R = 1;
 
     // Do not instantiate.
-    private RunLength() { }
+    private RunLengthBit() { }
 
     /**
      * Reads a sequence of bits from standard input (that are encoded
@@ -99,14 +102,16 @@ public class RunLength {
      * @param args the command-line arguments
      */
     public static void main(String[] args) throws IOException {
-//        System.setIn(new FileInputStream(new File("abra.txt")));
+        /*System.setIn(new FileInputStream(new File("abra.txt")));*/
+//        System.setIn(new FileInputStream(new File("q32x48.bin")));
 //        if      (args[0].equals("-")) compress();
 //        else if (args[0].equals("+")) expand();
 //        else throw new IllegalArgumentException("Illegal command line argument");
 
-        System.setIn(new FileInputStream(new File("abra.txt")));
-        compress();
+        System.setIn(new FileInputStream(new File("q32x48.bin")));
+        expand();
     }
+  
 }
 
 /******************************************************************************

@@ -1,4 +1,4 @@
-package _18; /******************************************************************************
+package _19; /******************************************************************************
  *  Compilation:  javac RunLength.java
  *  Execution:    java RunLength - < input.txt   (compress)
  *  Execution:    java RunLength + < input.txt   (expand)
@@ -36,10 +36,13 @@ package _18; /******************************************************************
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 public class RunLength {
     private static final int R    = 256;
     private static final int LG_R = 8;
@@ -105,7 +108,7 @@ public class RunLength {
 //        else throw new IllegalArgumentException("Illegal command line argument");
 
         System.setIn(new FileInputStream(new File("abra.txt")));
-        compress();
+        expand();
     }
 }
 

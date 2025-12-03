@@ -100,10 +100,13 @@ public class RunLengthBit {
      */
     public static void main(String[] args) throws IOException {
         /*System.setIn(new FileInputStream(new File("abra.txt")));*/
+//        System.setIn(new FileInputStream(new File("q32x48.bin")));
+//        if      (args[0].equals("-")) compress();
+//        else if (args[0].equals("+")) expand();
+//        else throw new IllegalArgumentException("Illegal command line argument");
+
         System.setIn(new FileInputStream(new File("q32x48.bin")));
-        if      (args[0].equals("-")) compress();
-        else if (args[0].equals("+")) expand();
-        else throw new IllegalArgumentException("Illegal command line argument");
+        compress();
     }
   
 }
